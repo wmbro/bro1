@@ -16,6 +16,7 @@ async def run_browser():
         headless=True,
         # screen=Screen(max_width=1920, max_height=1080),
         humanize=0.2,  # humanize=True,
+        exclude_addons=[DefaultAddons.UBO],
         # geoip=True,
     ) as browser:
         page = await browser.new_page()
