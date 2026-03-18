@@ -15,10 +15,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Build Docker
+      - name: Build Docker image
         run: docker build -t bot .
 
-      - name: Run Docker
+      - name: Run Docker container
+        shell: bash
         run: |
           docker run --rm \
             -e URL="${{ secrets.URL }}" \
@@ -27,11 +28,12 @@ jobs:
             -e REF="${{ secrets.REF }}" \
             -e MINUTOS="${{ secrets.MINUTOS }}" \
             -e MAX_RETRIES="${{ secrets.MAX_RETRIES }}" \
-            -v ${{ github.workspace }}:/app \
+            -v "${{ github.workspace }}:/app" \
             bot
 
       - name: Upload screenshot
         uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: screenshot
           path: screen.png
