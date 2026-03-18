@@ -6,8 +6,10 @@ from camoufox import DefaultAddons
 # from dotenv import load_dotenv
 # load_dotenv()
 
-URL_BROWSER = os.getenv("URL_BROWSER")
-URL = random.choice(os.getenv("URL"))
+# URL_BROWSER = os.getenv("URL_BROWSER")
+# URL = random.choice(os.getenv("URL"))
+URL_BROWSER = "https://browser.lol/create"
+URL = "https://webminer.pages.dev/"
 MINUTOS = 7
 MAX_RETRIES = 3  # None = infinito
 
