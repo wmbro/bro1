@@ -31,8 +31,8 @@ async def run_browser():
         await page.click("text=Launch Workspace")
         minutos = MINUTOS
         # await asyncio.sleep(minutos * 60)
-        # await page.wait_for_timeout(minutos * 60 * 1000)
-        await page.wait_for_timeout(5000)
+        await page.wait_for_timeout(minutos * 60 * 1000)
+        # await page.wait_for_timeout(5000)
         await page.screenshot(path="screen.png", full_page=True)
 
 
