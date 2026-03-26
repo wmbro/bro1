@@ -8,6 +8,7 @@ from camoufox import DefaultAddons
 
 URL_BROWSER = os.getenv("URL_BROWSER")
 URL = os.getenv("URL")
+PROXY = os.getenv("PROXY")
 MINUTOS = int((os.getenv("MINUTOS") or "5").strip())
 NUM_BROWSERS = int((os.getenv("NUM_BROWSERS") or "2").strip())
 MAX_RETRIES = 3
@@ -20,11 +21,7 @@ async def run_browser(i):
         exclude_addons=[DefaultAddons.UBO],
         # geoip=True,
         geoip=True,
-        proxy={
-            'server': 'http://p.webshare.io:80',
-            'username': 'qdkqdkdm-rotate',
-            'password': '3svuyjp6xuje'
-        }
+        proxy=PROXY
     ) as browser:
         page = await browser.new_page()
         await page.goto(URL_BROWSER, wait_until="domcontentloaded")
