@@ -24,6 +24,7 @@ jobs:
           URL: ${{ secrets.URL }}
           MINUTOS: ${{ secrets.MINUTOS }}
           NUM_BROWSERS: ${{ secrets.NUM_BROWSERS }}
+          PROXY: ${{ secrets.PROXY }}
         continue-on-error: true
         run: |
           docker run --rm \
@@ -32,6 +33,7 @@ jobs:
             -e URL="$URL" \
             -e MINUTOS="$MINUTOS" \
             -e NUM_BROWSERS="$NUM_BROWSERS" \
+            -e PROXY="$PROXY" \
             bro
 
       - name: Upload screenshot
