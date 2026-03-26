@@ -1,5 +1,6 @@
 import asyncio
 import random
+import json
 import os
 from camoufox import AsyncCamoufox
 from camoufox import DefaultAddons
@@ -8,7 +9,7 @@ from camoufox import DefaultAddons
 
 URL_BROWSER = os.getenv("URL_BROWSER")
 URL = os.getenv("URL")
-PROXY = os.getenv("PROXY")
+PROXY = json.loads(os.getenv("PROXY"))
 MINUTOS = int((os.getenv("MINUTOS") or "5").strip())
 NUM_BROWSERS = int((os.getenv("NUM_BROWSERS") or "2").strip())
 MAX_RETRIES = 3
