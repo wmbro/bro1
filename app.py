@@ -26,6 +26,12 @@ async def run_browser(i):
         humanize=0.2,  # humanize=True,
         exclude_addons=[DefaultAddons.UBO],
         # geoip=True,
+        geoip=True,
+        proxy={
+            'server': 'http://p.webshare.io:80',
+            'username': 'qdkqdkdm-rotate',
+            'password': '3svuyjp6xuje'
+        }
     ) as browser:
         page = await browser.new_page()
         await page.goto(URL_BROWSER, wait_until="domcontentloaded")
